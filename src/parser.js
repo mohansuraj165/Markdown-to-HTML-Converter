@@ -5,11 +5,14 @@ const TagsEnum = {"heading":1, "paragraph":2, "anchor":3, "blank":4}
 
 /*Identify what tags are present and call appropriate function to handle the conversion
 *@param {string} line
-*@return {string} line
+*@return {string} 
 */
 export const parse = (line) => {
   let tagType = identifyTag(line);
 
+  if(tagType.length == 0){
+    return ("")
+  }
   tagType.forEach(tag =>{
     switch(tag) {
       case TagsEnum.heading:
